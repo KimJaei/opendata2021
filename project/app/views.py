@@ -21,7 +21,7 @@ def chun(request):
     return render(request, 'chun.html', {'attractionJson': attractionJson})
 
 def mil(request):
-    with open('static/mil.json', encoding='utf-8') as json_file:
+    with open('/home/ijin22/test/project/static/mil.json', encoding='utf-8') as json_file:
         attractions = json.load(json_file)
 
     attractiondict = []
@@ -36,7 +36,7 @@ def mil(request):
     return render(request, 'mil.html', {'attractionJson': attractionJson})
 
 def gaw(request):
-    with open('static/gaw.json', encoding='utf-8') as json_file:
+    with open('/home/ijin22/test/project/static/gaw.json', encoding='utf-8') as json_file:
         attractions = json.load(json_file)
 
     attractiondict = []
