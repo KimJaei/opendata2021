@@ -6,7 +6,7 @@ def index(request):
     return render(request, 'index.html')
 
 def chun(request):
-    with open('static/chun.json', encoding='utf-8') as json_file:
+    with open('/home/ijin22/test/project/static/chun.json', encoding='utf-8') as json_file:
         attractions = json.load(json_file)
 
     attractiondict = []
