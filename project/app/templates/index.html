@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>여기 종량제봉투 있어요? : 종량제봉투 판매점 위치제공 웹 서비스</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+  </head>
+
+<body>
+    <header>
+        <div class="container" style="text-align:center;">
+            <div class="col-lg-12" id="bodysect">
+                <div class="bs-component">
+                    <hr>
+                    <strong>
+                        <h1 id="banner" style="font-weight:800;">여기 종량제봉투 있어요?</h1>
+                    </strong>
+                    <h3>: 내 집 주변 종량제봉투 판매점의 위치를 알려드려요!</h3>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <!--가운데 지정 양옆 공백 컨테이너-->
+        <div class="container" style="text-align:center;">
+            <div class="col-lg-12" id="bodysect">
+                <div class="bs-component">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <a href="{%url 'index' %}"><img src="/static/mainlogo_trans.png" width="100%"
+                                    height="400"></a>
+                            <h5 style="text-align:center;"> 는 쓰레기를 버리러 종량제봉투를 사러 갔지만
+                                <br>종량제봉투를 팔지 않아 아쉽게 돌아서야 하는 것을 방지하기 위해 만들어졌어요.
+                                <br><br>아래 검색 버튼을 사용해서 종량제봉투 위치를 검색해보세요.
+                            </h5>
+
+
+                            <div class="col-lg-12" id="bodysect">
+                                <a href="{%url 'mil'%}"><button type="button" class="btn btn-success btn-lg">밀양시 판매점
+                                        검색하기</button></a>
+                                <a href="{%url 'gaw'%}"><button type="button" class="btn btn-info btn-lg">과천시 판매점
+                                        검색하기</button></a>
+                                <a href="{%url 'chun'%}"><button type="button" class="btn btn-warning btn-lg">춘천시 판매점
+                                        검색하기</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <footer id="footer">
+        <div class="row">
+            <div class="col-lg-12" style="text-align:center;">
+                <p>This web page is a prototype page created to participate in 2021 PUBLIC DATA hackathon.<br></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
