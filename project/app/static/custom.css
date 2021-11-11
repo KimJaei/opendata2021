@@ -1,0 +1,55 @@
+          #banner {
+          text-align:center;
+          font: bold 3em "Nanum Gothic", sans-serif;
+          }
+
+          #bodysect {
+          z-index:0;
+          margin-top:30px;
+          display:inline-block;
+          }
+
+          #wallpaper {
+          background-image : url('./img/bg2.png');
+          background-repeat:no-repeat;
+          background-size:cover;"
+          }
+
+          table {
+          margin:auto;
+          text-align:center;
+          font-family:Nanum Gothic;
+          border:blue;
+          }
+
+          thead {
+          background:#F2F3F4;
+          }
+
+          h1 {
+          font-family:Nanum Gothic;
+          }
+
+          h2 {
+          font-family:Nanum Gothic;
+          }
+
+          h3 {
+          font-family:Nanum Gothic;
+          }
+
+          h4 {
+          font-family:Nanum Gothic;
+          }
+
+          h5 {
+          font-family:Nanum Gothic;
+          }
+
+          h6 {
+          font-family:Nanum Gothic;
+          }
+
+          p {
+          font-family:Nanum Gothic;
+          }
