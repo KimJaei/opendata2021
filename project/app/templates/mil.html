@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>밀양 종량제봉투 판매점</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet">
+    <title>춘천 종량제봉투 판매점</title>
 
     <style>
         html,
@@ -107,107 +108,146 @@
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <a href="{%url 'index' %}"><img src="/static/logo.png" width="20%"></a>
-        </div>
-
-        <div class="row">
-
-            <!--<div id="map" style="width:100%;height:1000px;"></div>-->
-
-            <div class="map_wrap">
-                <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-                <!-- 지도타입 컨트롤 div 입니다 -->
-                <div class="custom_typecontrol radius_border">
-                    <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
-                    <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+<body id="wallpaper">
+    <header>
+        <div class="container" style="text-align:center;">
+            <div class="col-lg-12" id="bodysect">
+                <div class="row">
+                    <a href="{%url 'index' %}"><img src="/static/logo.png" width="20%"></a>
                 </div>
-                <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
-                <div class="custom_zoomcontrol radius_border">
-                    <span onclick="zoomIn()"><img
-                            src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>
-                    <span onclick="zoomOut()"><img
-                            src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png"
-                            alt="축소"></span>
+                <div class="row">
+                    <strong>
+                        <h1 style="text-align:center;font-weight:800;">밀양시 종량제봉투 판매점(소매점) 위치</h1>
+                    </strong>
+                    <hr>
+                    <h4 class="card-title" style="text-align:center;">검색 : 경상남도 밀양시
+                        <br>지도에 표시된 마커에 마우스를 올리면 매장의 이름과 주소를 확인할 수 있습니다.
+                    </h4>
                 </div>
             </div>
-
-            <script type="text/javascript"
-                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d3b7c5d410433f6c2cc7e4eb3351a43d"></script>
-            <script>
-
-                // 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
-                function setMapType(maptype) {
-                    var roadmapControl = document.getElementById('btnRoadmap');
-                    var skyviewControl = document.getElementById('btnSkyview');
-                    if (maptype === 'roadmap') {
-                        map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
-                        roadmapControl.className = 'selected_btn';
-                        skyviewControl.className = 'btn';
-                    } else {
-                        map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);
-                        skyviewControl.className = 'selected_btn';
-                        roadmapControl.className = 'btn';
-                    }
-                }
-
-                // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-                function zoomIn() {
-                    map.setLevel(map.getLevel() - 1);
-                }
-
-                // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-                function zoomOut() {
-                    map.setLevel(map.getLevel() + 1);
-                }
-
-                var attractions = JSON.parse("{{ attractionJson|escapejs }}");
-                console.log(attractions)
-
-                var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-                    mapOption = {
-                        center: new kakao.maps.LatLng(35.4920337,128.7380404), // 지도의 중심좌표
-                        level: 6 // 지도의 확대 레벨
-                    };
-
-                var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-
-
-                // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-                var positions = [];
-                for (var i = 0; i < Object.keys(attractions).length; i++) {
-                    var content = {
-                        title: attractions[i].title,
-                        x: attractions[i].x,
-                        y: attractions[i].y,
-                    }
-                    positions.push(content);
-                };
-                var attractions = JSON.parse("{{ attractionJson|escapejs }}");
-                console.log(positions);
-
-                var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-                for (var i = 0; i < positions.length; i++) {
-                    // 마커 이미지의 이미지 크기 입니다
-                    var imageSize = new kakao.maps.Size(24, 35);
-                    // 마커 이미지를 생성합니다
-                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-                    // 마커를 생성합니다
-                    var marker = new kakao.maps.Marker({
-                        map: map, // 마커를 표시할 지도
-                        position: new kakao.maps.LatLng(positions[i].x, positions[i].y), // 마커를 표시할 위치
-                        title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                        image: markerImage // 마커 이미지
-                    });
-                }
-
-
-            </script>
         </div>
-    </div>
+    </header>
+    <div class="container">
+        
+
+        <section>
+            <!--가운데 지정 양옆 공백 컨테이너-->
+            <div class="container" style="text-align:center;">
+                <div class="col-lg-12" id="bodysect">
+                    <div class="bs-component">
+                        <h5 class="card-title" style="text-align:right;">본 지도는 공공데이터포털에서 제공하는 데이터 중 50개에 해당하는 항목을 랜덤으로
+                            선정하여 출력합니다.</h5>
+                        <div class="card mb-3">
+                            <div class="card-body">
+
+                                <div class="map_wrap">
+                                    <div id="map" style="width:100%;height:650px;position:relative;overflow:hidden;">
+                                    </div>
+                                    <!-- 지도타입 컨트롤 div 입니다 -->
+                                    <div class="custom_typecontrol radius_border">
+                                        <span id="btnRoadmap" class="selected_btn"
+                                            onclick="setMapType('roadmap')">지도</span>
+                                        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+                                    </div>
+                                    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+                                    <div class="custom_zoomcontrol radius_border">
+                                        <span onclick="zoomIn()"><img
+                                                src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png"
+                                                alt="확대"></span>
+                                        <span onclick="zoomOut()"><img
+                                                src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png"
+                                                alt="축소"></span>
+                                    </div>
+                                </div>
+
+                                <script type="text/javascript"
+                                    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d3b7c5d410433f6c2cc7e4eb3351a43d"></script>
+                                <script>
+
+
+                                    // 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+                                    function setMapType(maptype) {
+                                        var roadmapControl = document.getElementById('btnRoadmap');
+                                        var skyviewControl = document.getElementById('btnSkyview');
+                                        if (maptype === 'roadmap') {
+                                            map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
+                                            roadmapControl.className = 'selected_btn';
+                                            skyviewControl.className = 'btn';
+                                        } else {
+                                            map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);
+                                            skyviewControl.className = 'selected_btn';
+                                            roadmapControl.className = 'btn';
+                                        }
+                                    }
+
+                                    // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+                                    function zoomIn() {
+                                        map.setLevel(map.getLevel() - 1);
+                                    }
+
+                                    // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+                                    function zoomOut() {
+                                        map.setLevel(map.getLevel() + 1);
+                                    }
+
+                                    var attractions = JSON.parse("{{ attractionJson|escapejs }}");
+                                    console.log(attractions)
+
+                                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+                                        mapOption = {
+                                            center: new kakao.maps.LatLng(35.4920337,128.7380404), // 지도의 중심좌표
+                                            level: 6 // 지도의 확대 레벨
+                                        };
+
+                                    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+
+
+                                    // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+                                    var positions = [];
+                                    for (var i = 0; i < Object.keys(attractions).length; i++) {
+                                        var content = {
+                                            title: attractions[i].title,
+                                            x: attractions[i].x,
+                                            y: attractions[i].y,
+                                        }
+                                        positions.push(content);
+                                    };
+                                    var attractions = JSON.parse("{{ attractionJson|escapejs }}");
+                                    console.log(positions);
+
+                                    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+                                    for (var i = 0; i < positions.length; i++) {
+                                        // 마커 이미지의 이미지 크기 입니다
+                                        var imageSize = new kakao.maps.Size(24, 35);
+                                        // 마커 이미지를 생성합니다
+                                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+                                        // 마커를 생성합니다
+                                        var marker = new kakao.maps.Marker({
+                                            map: map, // 마커를 표시할 지도
+                                            position: new kakao.maps.LatLng(positions[i].x, positions[i].y), // 마커를 표시할 위치
+                                            title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                                            image: markerImage // 마커 이미지
+                                        });
+                                    }
+
+
+                                </script>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12" style="text-align:center;">
+                    <p>This web page is a prototype page created to participate in 2021 PUBLIC DATA hackathon.<br></p>
+                </div>
+            </div>
+        </footer>
 </body>
 
 </html>
