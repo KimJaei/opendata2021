@@ -224,18 +224,18 @@
                                             image: markerImage // 마커 이미지
                                         });
                                     }
-                                    function setCenter() {
-                                        navigator.geolocation.getCurrentPosition(function (position) {
 
-                                            var lat = position.coords.latitude, // 위도
-                                                lon = position.coords.longitude; // 경도
-                                        });
-                                        // 이동할 위도 경도 위치를 생성합니다 
-                                        var moveLatLon = new kakao.maps.LatLng(lat, lon);
+                                    navigator.geolocation.getCurrentPosition(function (position) {
 
-                                        // 지도 중심을 이동 시킵니다
-                                        map.setCenter(moveLatLon);
-                                    }
+                                        var lat = position.coords.latitude, // 위도
+                                            lon = position.coords.longitude; // 경도
+                                    });
+                                    // 이동할 위도 경도 위치를 생성합니다 
+                                    var moveLatLon = new kakao.maps.LatLng(lat, lon);
+
+                                    // 지도 중심을 이동 시킵니다
+                                    map.setCenter(moveLatLon);
+
 
 
                                 </script>
