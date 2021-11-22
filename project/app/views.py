@@ -50,7 +50,7 @@ def gaw(request):
     attractionJson = json.dumps(attractiondict, ensure_ascii=False)
     return render(request, 'gaw.html', {'attractionJson': attractionJson})
     
-def g(request):
+def gg(request):
     with open('/home/ijin22/test/project/static/gg.json', encoding='utf-8') as json_file:
         attractions = json.load(json_file)
 
@@ -64,4 +64,4 @@ def g(request):
         }
         attractiondict.append(content)
     attractionJson = json.dumps(attractiondict, ensure_ascii=False)
-    return render(request, 'g.html', {'attractionJson': attractionJson})
+    return render(request, 'gg.html', {'attractionJson': attractionJson})
