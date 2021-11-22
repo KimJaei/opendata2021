@@ -160,11 +160,6 @@
                                 <script type="text/javascript"
                                     src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d3b7c5d410433f6c2cc7e4eb3351a43d"></script>
                                 <script>
-                                    navigator.geolocation.getCurrentPosition(function (pos) {
-                                        var latitude = pos.coords.latitude;
-                                        var longitude = pos.coords.longitude;
-                                    });
-
                                     // 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
                                     function setMapType(maptype) {
                                         var roadmapControl = document.getElementById('btnRoadmap');
@@ -200,6 +195,13 @@
                                         };
 
                                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                                    navigator.geolocation.getCurrentPosition(function (pos) {
+                                        var lat = pos.coords.latitude;
+                                        var lon = pos.coords.longitude;
+                                    });
+                                    var locPosition = new kakao.maps.LatLng(lat, lon)
+                                    map.setCenter(locPosition);
                               
                                     // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
                                     var positions = [];
