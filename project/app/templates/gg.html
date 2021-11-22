@@ -190,18 +190,11 @@
 
                                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
                                         mapOption = {
-                                            center: new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
+                                            center: new kakao.maps.LatLng(37.5866118, 126.9726223), // 지도의 중심좌표
                                             level: 6 // 지도의 확대 레벨
                                         };
 
                                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-                                    navigator.geolocation.getCurrentPosition(function (position) {
-
-                                        var lat = position.coords.latitude, // 위도
-                                            lon = position.coords.longitude; // 경도
-                                    });
-
 
                                     // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
                                     var positions = [];
@@ -231,7 +224,18 @@
                                             image: markerImage // 마커 이미지
                                         });
                                     }
-                                    map.setCenter(locPosition);
+                                    function setCenter() {
+                                        navigator.geolocation.getCurrentPosition(function (position) {
+
+                                            var lat = position.coords.latitude, // 위도
+                                                lon = position.coords.longitude; // 경도
+                                        });
+                                        // 이동할 위도 경도 위치를 생성합니다 
+                                        var moveLatLon = new kakao.maps.LatLng(lat, lon);
+
+                                        // 지도 중심을 이동 시킵니다
+                                        map.setCenter(moveLatLon);
+                                    }
 
 
                                 </script>
