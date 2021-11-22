@@ -196,13 +196,13 @@
 
                                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-                                    navigator.geolocation.getCurrentPosition(function (pos) {
-                                        var lat = pos.coords.latitude;
-                                        var lon = pos.coords.longitude;
+                                    navigator.geolocation.getCurrentPosition(function (position) {
+
+                                        var lat = position.coords.latitude, // 위도
+                                            lon = position.coords.longitude; // 경도
                                     });
-                                    var locPosition = new kakao.maps.LatLng(lat, lon)
-                                    map.setCenter(locPosition);
-                              
+
+
                                     // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
                                     var positions = [];
                                     for (var i = 0; i < Object.keys(attractions).length; i++) {
@@ -231,6 +231,7 @@
                                             image: markerImage // 마커 이미지
                                         });
                                     }
+                                    map.setCenter(locPosition);
 
 
                                 </script>
