@@ -25,6 +25,7 @@ urlpatterns = [
     path('', app.views.index, name='index'),
     path('chun', app.views.chun, name='chun'),
     path('mil', app.views.mil, name='mil'),
-    path('gaw', app.views.gaw, name='gaw')
+    path('gaw', app.views.gaw, name='gaw'),
+    path('g', app.views.g, name='g')
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

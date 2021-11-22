@@ -50,3 +50,18 @@ def gaw(request):
     attractionJson = json.dumps(attractiondict, ensure_ascii=False)
     return render(request, 'gaw.html', {'attractionJson': attractionJson})
     
+def g(request):
+    with open('/home/ijin22/test/project/static/gg.json', encoding='utf-8') as json_file:
+        attractions = json.load(json_file)
+
+    attractiondict = []
+    for attraction in attractions:
+        content = {
+            "local": attraction['시군구'],
+            "title": attraction['사업장명'],
+            "x": str(attraction['위도']),
+            "y": str(attraction['경도']),
+        }
+        attractiondict.append(content)
+    attractionJson = json.dumps(attractiondict, ensure_ascii=False)
+    return render(request, 'g.html', {'attractionJson': attractionJson})
