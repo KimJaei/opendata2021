@@ -57,7 +57,7 @@ def gyeong(request):
     attractiondict = []
     for attraction in attractions:
         content = {
-            "local": attraction['시군구'],
+            "local": attraction['시군명'],
             "title": attraction['사업장명'],
             "x": str(attraction['위도']),
             "y": str(attraction['경도']),
