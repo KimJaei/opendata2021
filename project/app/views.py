@@ -51,12 +51,13 @@ def gaw(request):
     return render(request, 'gaw.html', {'attractionJson': attractionJson})
     
 def gyeong(request):
-    with open('/home/ijin22/test/project/static/gg.json', encoding='utf-8') as json_file:
+    with open('/home/ijin22/test/project/static/gg2.json', encoding='utf-8') as json_file:
         attractions = json.load(json_file)
 
     attractiondict = []
     for attraction in attractions:
         content = {
+            "num": attraction['번호'],
             "local": attraction['시군명'],
             "title": attraction['사업장명'],
             "x": str(attraction['위도']),

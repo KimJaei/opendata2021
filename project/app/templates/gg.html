@@ -188,18 +188,19 @@
                                     var attractions = JSON.parse("{{ attractionJson|escapejs }}");
                                     console.log(attractions)
 
-                                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+                                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                                         mapOption = {
-                                            center: new kakao.maps.LatLng(37.5866118, 126.9726223), // 지도의 중심좌표
+                                            center: new kakao.maps.LatLng(37.4503676, 127.1274971), // 지도의 중심좌표
                                             level: 2 // 지도의 확대 레벨
                                         };
 
                                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-                                    // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+                                    // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다
                                     var positions = [];
                                     for (var i = 0; i < Object.keys(attractions).length; i++) {
                                         var content = {
+                                            num: attractions[i].num,
                                             local: attractions[i].local,
                                             title: attractions[i].title,
                                             x: attractions[i].x,
@@ -210,22 +211,53 @@
                                     var attractions = JSON.parse("{{ attractionJson|escapejs }}");
                                     console.log(positions);
 
-                                    
+
 
                                     var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
                                     for (var i = 0; i < positions.length; i++) {
-                                        var cc = [positions[i].local+" "+positions[i].title]
-                                        // 마커 이미지의 이미지 크기 입니다
-                                        var imageSize = new kakao.maps.Size(24, 35);
-                                        // 마커 이미지를 생성합니다
-                                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-                                        // 마커를 생성합니다
-                                        var marker = new kakao.maps.Marker({
-                                            map: map, // 마커를 표시할 지도
-                                            position: new kakao.maps.LatLng(positions[i].x, positions[i].y), // 마커를 표시할 위치
-                                            title: cc,  // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                                            image: markerImage // 마커 이미지
-                                        });
+                                        if (positions[i].num > 9999) {
+                                            var geocoder = new kakao.maps.services.Geocoder(),
+                                                wtmX = positions[i].x,
+                                                wtmY = positions[i].y;
+
+                                            geocoder.transCoord(wtmX, wtmY, transCoordCB, {
+                                                input_coord: kakao.maps.services.Coords.WTM, // 변환을 위해 입력한 좌표계 입니다
+                                                output_coord: kakao.maps.services.Coords.WGS84 // 변환 결과로 받을 좌표계 입니다 
+                                            });
+
+                                            function transCoordCB(result, status) {
+
+                                                // 정상적으로 검색이 완료됐으면 
+                                                if (status === kakao.maps.services.Status.OK) {
+
+                                                    // 마커를 변환된 위치에 표시합니다
+                                                    var marker = new kakao.maps.Marker({
+                                                        map: map, // 마커를 표시할 지도
+                                                        position: new kakao.maps.LatLng(positions[i].x, positions[i].y), // 마커를 표시할 위치
+                                                        title: cc,  // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                                                        image: markerImage // 마커 이미지
+                                                    })
+                                                }
+                                            }
+
+
+
+                                        } else {
+                                            var cc = [positions[i].local + " " + positions[i].title]
+                                            // 마커 이미지의 이미지 크기 입니다
+                                            var imageSize = new kakao.maps.Size(24, 35);
+                                            // 마커 이미지를 생성합니다
+                                            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+                                            // 마커를 생성합니다
+                                            var marker = new kakao.maps.Marker({
+                                                map: map, // 마커를 표시할 지도
+                                                position: new kakao.maps.LatLng(positions[i].x, positions[i].y), // 마커를 표시할 위치
+                                                title: cc,  // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                                                image: markerImage // 마커 이미지
+                                            });
+
+                                        }
+
                                     }
 
                                     if (navigator.geolocation) {
@@ -245,8 +277,7 @@
 
                                     } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
 
-                                        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667)
-
+                                        var locPosition = new kakao.maps.LatLng(37.4503676, 127.1274971)
 
                                         displayMarker(locPosition);
                                     }
