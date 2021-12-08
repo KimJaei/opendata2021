@@ -2,8 +2,10 @@
 ### 서비스 개발 : 종량제봉투 판매점 위치 제공 웹서비스 
 #### 팀 이진수
 [김재이](https://github.com/KimJaei) [엄영진](https://github.com/ZerojU)
-<hr>
+
 <h4>종량제봉투 판매점 위치제공 웹서비스 "여기 종량제봉투 있어요?"는 사용자에게 종량제봉투 판매점 위치제공을 해주는 웹서비스입니다.</h4>
+<hr>
+
 
 ![슬라이드1](https://user-images.githubusercontent.com/48463426/145160012-cb4d1f57-8da1-4f59-8f2f-99b485217ece.PNG)
 
