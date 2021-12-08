@@ -5,6 +5,7 @@
 <hr>
 <h4>종량제봉투 판매점 위치제공 웹서비스 "여기 종량제봉투 있어요?"는 사용자에게 종량제봉투 판매점 위치제공을 해주는 웹서비스입니다.</h4>
 ![슬라이드1](https://user-images.githubusercontent.com/48463426/145160012-cb4d1f57-8da1-4f59-8f2f-99b485217ece.PNG)
+
 ![슬라이드2](https://user-images.githubusercontent.com/48463426/145160017-ec7a3381-80af-40bd-9ec1-4453ff20174b.PNG)
 ![슬라이드3](https://user-images.githubusercontent.com/48463426/145160018-fa88a544-662c-4a9d-a580-abe3ba81b598.PNG)
 ![슬라이드4](https://user-images.githubusercontent.com/48463426/145160020-6801d732-99e1-45a8-b5e9-ebd7c00ff955.PNG)
